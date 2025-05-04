@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GERD Acute Food Checker</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <script>
+    // Check login flag on page load
+    if (localStorage.getItem("isLoggedIn") !== "true") {
+      window.location.href = "login.html";
+    }
+  </script>
+
+  <header>
+    <h1>Sayangku mam apaa hari inii???</h1>
+    <p>Coba dicari tau mamnya terbuat dari apa aja?.</p>
+  </header>
+
+  <main>
+    <section class="search-section">
+      <input
+        type="search"
+        id="searchInput"
+        placeholder="Search ingredients..."
+        aria-label="Search ingredients"
+      />
+    </section>
+
+    <section class="ingredients-section">
+      <ul id="ingredientsList" class="ingredients-list" aria-live="polite" aria-relevant="additions"></ul>
+    </section>
+
+    <section class="result-section" aria-live="polite" aria-atomic="true">
+      <div id="resultContainer" class="result-container">
+        <img id="resultImage" src="" alt="" class="result-image" />
+        <p id="resultText" class="result-text"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>supaya perutnya tidak perih lagi dan semangat recovery nya sayang !!.</p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+
+  <!-- Confetti elements for animation -->
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+</body>
+</html>

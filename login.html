@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login - GERD Acute Food Checker</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      background: linear-gradient(135deg, #e094a0, #e094a0);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      margin: 0;
+      color: #7d3f98;
+    }
+    .login-container {
+      background: #fff0f5;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(125, 63, 152, 0.3);
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+    }
+    h2 {
+      margin-bottom: 1rem;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-size: 1.2rem;
+      border: 3px solid #f8b500;
+      border-radius: 25px;
+      outline: none;
+      transition: border-color 0.3s ease;
+      margin-bottom: 1rem;
+    }
+    input[type="text"]:focus {
+      border-color: #7d3f98;
+      box-shadow: 0 0 8px #7d3f98;
+    }
+    button {
+      background-color: #f8b500;
+      border: none;
+      border-radius: 25px;
+      padding: 0.75rem 2rem;
+      font-size: 1.2rem;
+      color: #4a2c2a;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #7d3f98;
+      color: #fff;
+    }
+    .error-message {
+      color: #d9534f;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Selamat datang</h2>
+    <div class="photo-container" style="max-width: 150px; margin: 0 auto 1rem auto;">
+      <img src="buat login.jpeg" alt="Welcome photo" style="width: 100%; height: auto; border-radius: 15px; object-fit: contain;" />
+    </div>
+    <input type="text" id="usernameInput" placeholder="Enter your name" aria-label="Username" />
+    <button id="loginButton">Login</button>
+    <p id="errorMessage" class="error-message" role="alert" aria-live="assertive"></p>
+  </div>
+
+  <script>
+    const allowedUsers = ["Zelika", "zelika", "jeje"];
+    const loginButton = document.getElementById("loginButton");
+    const usernameInput = document.getElementById("usernameInput");
+    const errorMessage = document.getElementById("errorMessage");
+
+    function login() {
+      const username = usernameInput.value.trim();
+      if (allowedUsers.includes(username)) {
+        // Set login flag in localStorage
+        localStorage.setItem("isLoggedIn", "true");
+        // Redirect to main page
+        window.location.href = "index.html";
+      } else {
+        errorMessage.textContent = "Pergi sana kamu bukan cantikku !!!.";
+      }
+    }
+
+    loginButton.addEventListener("click", login);
+    usernameInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        login();
+      }
+    });
+  </script>
+</body>
+</html>

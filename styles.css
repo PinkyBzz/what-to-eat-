@@ -1,0 +1,219 @@
+/* General resets and base styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background: linear-gradient(135deg, #ffb6c1, #ffb6c1);
+  margin: 0;
+  padding: 0 1rem 2rem 1rem;
+  color: #4a2c2a;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Animation for confetti falling */
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100%) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background-color: #ff69b4;
+  opacity: 0.8;
+  top: -10px;
+  animation-name: confetti-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 5s;
+  border-radius: 2px;
+  z-index: 9999;
+}
+
+/* Different colors for confetti */
+.confetti:nth-child(1) { background-color: #ff69b4; animation-delay: 0s; left: 10%; }
+.confetti:nth-child(2) { background-color: #ff1493; animation-delay: 1s; left: 20%; }
+.confetti:nth-child(3) { background-color: #ffb6c1; animation-delay: 2s; left: 30%; }
+.confetti:nth-child(4) { background-color: #ff69b4; animation-delay: 3s; left: 40%; }
+.confetti:nth-child(5) { background-color: #ff1493; animation-delay: 4s; left: 50%; }
+.confetti:nth-child(6) { background-color: #ffb6c1; animation-delay: 0.5s; left: 60%; }
+.confetti:nth-child(7) { background-color: #ff69b4; animation-delay: 1.5s; left: 70%; }
+.confetti:nth-child(8) { background-color: #ff1493; animation-delay: 2.5s; left: 80%; }
+.confetti:nth-child(9) { background-color: #ffb6c1; animation-delay: 3.5s; left: 90%; }
+.confetti:nth-child(10) { background-color: #ff69b4; animation-delay: 4.5s; left: 95%; }
+
+header {
+  text-align: center;
+  padding: 1rem 0;
+  color: #7d3f98;
+  text-shadow: 1px 1px 2px #fff;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.2rem;
+}
+
+p {
+  font-size: 1.1rem;
+  margin-top: 0;
+}
+
+/* Search input */
+.search-section {
+  margin: 1rem auto;
+  max-width: 480px;
+  width: 100%;
+}
+
+#searchInput {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1.2rem;
+  border: 3px solid #f8b500;
+  border-radius: 25px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+#searchInput:focus {
+  border-color: #7d3f98;
+  box-shadow: 0 0 8px #7d3f98;
+}
+
+/* Ingredients list */
+.ingredients-section {
+  max-width: 480px;
+  margin: 0 auto 2rem auto;
+  background: #fff0f5;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(125, 63, 152, 0.3);
+  padding: 1rem;
+  height: 300px;
+  overflow-y: auto;
+}
+
+.ingredients-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ingredients-list li {
+  margin-bottom: 0.5rem;
+}
+
+.ingredients-list label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  color: #7d3f98;
+  user-select: none;
+}
+
+.ingredients-list input[type="checkbox"] {
+  margin-right: 0.75rem;
+  width: 20px;
+  height: 20px;
+  accent-color: #f8b500;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* Result section */
+.result-section {
+  max-width: 480px;
+  margin: 0 auto;
+  text-align: center;
+  background: #fff0f5;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(125, 63, 152, 0.3);
+  padding: 1rem;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.result-image {
+  max-width: 120px;
+  margin: 0 auto 1rem auto;
+  border-radius: 15px;
+  box-shadow: 0 2px 6px rgba(125, 63, 152, 0.4);
+}
+
+.result-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #7d3f98;
+  text-shadow: 1px 1px 2px #fff;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: auto;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+  color: #7d3f98;
+}
+
+/* Scrollbar styling for ingredients list */
+.ingredients-section::-webkit-scrollbar {
+  width: 8px;
+}
+
+.ingredients-section::-webkit-scrollbar-track {
+  background: #fceabb;
+  border-radius: 15px;
+}
+
+.ingredients-section::-webkit-scrollbar-thumb {
+  background: #f8b500;
+  border-radius: 15px;
+}
+
+/* Responsive for mobile */
+@media (max-width: 600px) {
+  body {
+    padding: 0 0.5rem 1rem 0.5rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  #searchInput {
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+  }
+
+  .ingredients-section {
+    height: 250px;
+    padding: 0.75rem;
+  }
+
+  .ingredients-list label {
+    font-size: 1rem;
+  }
+
+  .result-text {
+    font-size: 1.3rem;
+  }
+
+  .result-image {
+    max-width: 100px;
+  }
+}
